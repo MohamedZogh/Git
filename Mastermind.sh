@@ -139,10 +139,10 @@ boule1Color () {
         boule1="J"
     ;;
     5) 
-        boule1="N"
+        boule1="C"
     ;;
     6) 
-        boule1="M"
+        boule1="P"
     ;;
     esac
 }
@@ -161,10 +161,10 @@ boule2Color () {
         boule2="J"
     ;;
     5) 
-        boule2="N"
+        boule2="C"
     ;;
     6) 
-        boule2="M"
+        boule2="P"
     ;;
     esac
 }
@@ -183,10 +183,10 @@ boule3Color () {
         boule3="J"
     ;;
     5) 
-        boule3="N"
+        boule3="C"
     ;;
     6) 
-        boule3="M"
+        boule3="P"
     ;;
     esac
 }
@@ -205,10 +205,10 @@ boule4Color () {
         boule4="J"
     ;;
     5) 
-        boule4="N"
+        boule4="C"
     ;;
     6) 
-        boule4="M"
+        boule4="P"
     ;;
     esac
 }

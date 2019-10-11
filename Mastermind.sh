@@ -19,6 +19,15 @@ cat << "EOS"
 EOS
 }
 
+s1="X"
+bonnecouleur1="X"
+s2="X"
+bonnecouleur2="X"
+s3="X"
+bonnecouleur3="X"
+s4="X"
+bonnecouleur4="X"
+
 main_menu () {
     echo "                               WELCOME TO "
     logo
@@ -52,20 +61,59 @@ main_menu () {
         boule4Color
         solution="$boule1/$boule2/$boule3/$boule4"
         echo $solution
+
+        
+
         i=0
         while [ $i -lt 9 ]
         do
-        echo -e "Couleur disponible : R / B / V / J / N / M"
+        echo -e "Couleur disponible : \033[31m R \033[0m / \033[34m B \033[0m / \033[32m V \033[0m / \033[1;33m J \033[0m / \033[36m C \033[0m / \033[35m P \033[0m"
         echo -e "indiquer votre choix tel que : 'R/B/V/J'"
         read reponse
-
         if [ $reponse == $solution ]
         then
             echo -e "Vous avez gagné !"
             break
         else
-            clear
-            echo -e "Plus que $((8-$i)) tentative"
+            echo "$reponse"
+            r1=$(echo $reponse | cut -d\/ -f1)
+            r2=$(echo $reponse | cut -d\/ -f2)
+            r3=$(echo $reponse | cut -d\/ -f3)
+            r4=$(echo $reponse | cut -d\/ -f4)
+            echo "R= $r1 $r2 $r3 $r4"
+            echo "$reponse"
+
+            if [ "$r1" = "$boule1" ]
+            then
+                s1=$r1
+            elif [[ $r1 = $boule2 ]] || [[ $r1 = $boule3 ]] || [[ $r1 = $boule4 ]]
+            then
+                bonnecouleur1=$r1
+            fi
+            if [ "$r2" = "$boule2" ]
+            then
+                s2=$r2
+            elif [[ $r2 = $boule1 ]] || [[ $r2 = $boule3 ]] || [[ $r2 = $boule4 ]]
+            then
+                bonnecouleur2=$r2
+            fi
+            if [ "$r3" = "$boule3" ]
+            then
+                s3=$r3
+            elif [[ "$r3" = "$boule1" ]] || [[ "$r3" = "$boule2" ]] || [[ "$r3" = "$boule4" ]]
+            then
+                bonnecouleur3=$r3
+            fi
+            if [ "$r4" = "$boule4" ]
+            then
+                s4=$r4
+            elif [[ $r4 = $boule1 ]] || [[ $r4 = $boule3 ]] || [[ $r4 = $boule4 ]]
+            then
+                bonnecouleur4=$r4
+            fi
+            echo "Boule bien placé : $s1/$s2/$s3/$s4"
+            echo "Bonne couleur mais boule mal placée : $bonnecouleur1/$bonnecouleur2/$bonnecouleur3/$bonnecouleur4"
+            echo -e "Plus que $((8-$i)) tentative \n"
             i=$(($i+1))
         fi
         done

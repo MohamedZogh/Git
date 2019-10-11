@@ -75,13 +75,10 @@ main_menu () {
             echo -e "Vous avez gagné !"
             break
         else
-            echo "$reponse"
             r1=$(echo $reponse | cut -d\/ -f1)
             r2=$(echo $reponse | cut -d\/ -f2)
             r3=$(echo $reponse | cut -d\/ -f3)
             r4=$(echo $reponse | cut -d\/ -f4)
-            echo "R= $r1 $r2 $r3 $r4"
-            echo "$reponse"
 
             if [ "$r1" = "$boule1" ]
             then

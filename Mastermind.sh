@@ -70,7 +70,7 @@ main_menu () {
         echo -e "Couleur disponible : \033[31m R \033[0m / \033[34m B \033[0m / \033[32m V \033[0m / \033[1;33m J \033[0m / \033[36m C \033[0m / \033[35m P \033[0m"
         echo -e "indiquer votre choix tel que : 'R/B/V/J'"
         read reponse
-        if [ $reponse == $solution ]
+        if [ "$reponse" == $solution ]
         then
             echo -e "Vous avez gagné !"
             break
